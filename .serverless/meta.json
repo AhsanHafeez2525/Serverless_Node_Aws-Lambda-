@@ -1,0 +1,450 @@
+{
+  "C:\\serverless-apis": {
+    "versionSfCore": null,
+    "versionFramework": "4.1.19",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeResolverProviders": {
+      "aws": {
+        "instance": {
+          "credentials": "<REDACTED>",
+          "serviceConfigFile": {
+            "org": "ahsansatti234",
+            "app": "serveless-app",
+            "service": "youtube-api",
+            "provider": {
+              "name": "aws",
+              "stage": "dev",
+              "region": "us-east-1",
+              "versionFunctions": true,
+              "compiledCloudFormationTemplate": {
+                "AWSTemplateFormatVersion": "2010-09-09",
+                "Description": "The AWS CloudFormation template for this Serverless application",
+                "Resources": {
+                  "ServerlessDeploymentBucket": {
+                    "Type": "AWS::S3::Bucket",
+                    "Properties": {
+                      "BucketEncryption": {
+                        "ServerSideEncryptionConfiguration": [
+                          {
+                            "ServerSideEncryptionByDefault": {
+                              "SSEAlgorithm": "AES256"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "ServerlessDeploymentBucketPolicy": {
+                    "Type": "AWS::S3::BucketPolicy",
+                    "Properties": {
+                      "Bucket": {
+                        "Ref": "ServerlessDeploymentBucket"
+                      },
+                      "PolicyDocument": {
+                        "Statement": [
+                          {
+                            "Action": "s3:*",
+                            "Effect": "Deny",
+                            "Principal": "*",
+                            "Resource": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":s3:::",
+                                    {
+                                      "Ref": "ServerlessDeploymentBucket"
+                                    },
+                                    "/*"
+                                  ]
+                                ]
+                              },
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":s3:::",
+                                    {
+                                      "Ref": "ServerlessDeploymentBucket"
+                                    }
+                                  ]
+                                ]
+                              }
+                            ],
+                            "Condition": {
+                              "Bool": {
+                                "aws:SecureTransport": false
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "Outputs": {
+                  "ServerlessDeploymentBucketName": {
+                    "Value": {
+                      "Ref": "ServerlessDeploymentBucket"
+                    },
+                    "Export": {
+                      "Name": "sls-youtube-api-dev-ServerlessDeploymentBucketName"
+                    }
+                  }
+                }
+              },
+              "coreCloudFormationTemplate": {
+                "AWSTemplateFormatVersion": "2010-09-09",
+                "Description": "The AWS CloudFormation template for this Serverless application",
+                "Resources": {
+                  "ServerlessDeploymentBucket": {
+                    "Type": "AWS::S3::Bucket",
+                    "Properties": {
+                      "BucketEncryption": {
+                        "ServerSideEncryptionConfiguration": [
+                          {
+                            "ServerSideEncryptionByDefault": {
+                              "SSEAlgorithm": "AES256"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "ServerlessDeploymentBucketPolicy": {
+                    "Type": "AWS::S3::BucketPolicy",
+                    "Properties": {
+                      "Bucket": {
+                        "Ref": "ServerlessDeploymentBucket"
+                      },
+                      "PolicyDocument": {
+                        "Statement": [
+                          {
+                            "Action": "s3:*",
+                            "Effect": "Deny",
+                            "Principal": "*",
+                            "Resource": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":s3:::",
+                                    {
+                                      "Ref": "ServerlessDeploymentBucket"
+                                    },
+                                    "/*"
+                                  ]
+                                ]
+                              },
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":s3:::",
+                                    {
+                                      "Ref": "ServerlessDeploymentBucket"
+                                    }
+                                  ]
+                                ]
+                              }
+                            ],
+                            "Condition": {
+                              "Bool": {
+                                "aws:SecureTransport": false
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "Outputs": {
+                  "ServerlessDeploymentBucketName": {
+                    "Value": {
+                      "Ref": "ServerlessDeploymentBucket"
+                    }
+                  }
+                }
+              }
+            },
+            "name": "aws",
+            "runtime": "nodejs20.x",
+            "region": "ap-south-1",
+            "youtubeHeloFunc": {
+              "handler": "hello.handler",
+              "events": [
+                {
+                  "httpApi": null
+                }
+              ],
+              "path": "/hello",
+              "method": "GET"
+            },
+            "functions": null
+          },
+          "configFileDirPath": "C:\\serverless-apis",
+          "config": {
+            "type": "aws"
+          },
+          "options": {},
+          "stage": "dev",
+          "dashboard": null,
+          "isDefaultConfig": true
+        },
+        "resolvers": {}
+      }
+    },
+    "composeServiceName": null,
+    "servicePath": "C:\\serverless-apis",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "org": "ahsansatti234",
+      "app": "serveless-app",
+      "service": "youtube-api",
+      "provider": {
+        "name": "aws",
+        "stage": "dev",
+        "region": "us-east-1",
+        "versionFunctions": true,
+        "compiledCloudFormationTemplate": {
+          "AWSTemplateFormatVersion": "2010-09-09",
+          "Description": "The AWS CloudFormation template for this Serverless application",
+          "Resources": {
+            "ServerlessDeploymentBucket": {
+              "Type": "AWS::S3::Bucket",
+              "Properties": {
+                "BucketEncryption": {
+                  "ServerSideEncryptionConfiguration": [
+                    {
+                      "ServerSideEncryptionByDefault": {
+                        "SSEAlgorithm": "AES256"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "ServerlessDeploymentBucketPolicy": {
+              "Type": "AWS::S3::BucketPolicy",
+              "Properties": {
+                "Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "PolicyDocument": {
+                  "Statement": [
+                    {
+                      "Action": "s3:*",
+                      "Effect": "Deny",
+                      "Principal": "*",
+                      "Resource": [
+                        {
+                          "Fn::Join": [
+                            "",
+                            [
+                              "arn:",
+                              {
+                                "Ref": "AWS::Partition"
+                              },
+                              ":s3:::",
+                              {
+                                "Ref": "ServerlessDeploymentBucket"
+                              },
+                              "/*"
+                            ]
+                          ]
+                        },
+                        {
+                          "Fn::Join": [
+                            "",
+                            [
+                              "arn:",
+                              {
+                                "Ref": "AWS::Partition"
+                              },
+                              ":s3:::",
+                              {
+                                "Ref": "ServerlessDeploymentBucket"
+                              }
+                            ]
+                          ]
+                        }
+                      ],
+                      "Condition": {
+                        "Bool": {
+                          "aws:SecureTransport": false
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "Outputs": {
+            "ServerlessDeploymentBucketName": {
+              "Value": {
+                "Ref": "ServerlessDeploymentBucket"
+              },
+              "Export": {
+                "Name": "sls-youtube-api-dev-ServerlessDeploymentBucketName"
+              }
+            }
+          }
+        },
+        "coreCloudFormationTemplate": {
+          "AWSTemplateFormatVersion": "2010-09-09",
+          "Description": "The AWS CloudFormation template for this Serverless application",
+          "Resources": {
+            "ServerlessDeploymentBucket": {
+              "Type": "AWS::S3::Bucket",
+              "Properties": {
+                "BucketEncryption": {
+                  "ServerSideEncryptionConfiguration": [
+                    {
+                      "ServerSideEncryptionByDefault": {
+                        "SSEAlgorithm": "AES256"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "ServerlessDeploymentBucketPolicy": {
+              "Type": "AWS::S3::BucketPolicy",
+              "Properties": {
+                "Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "PolicyDocument": {
+                  "Statement": [
+                    {
+                      "Action": "s3:*",
+                      "Effect": "Deny",
+                      "Principal": "*",
+                      "Resource": [
+                        {
+                          "Fn::Join": [
+                            "",
+                            [
+                              "arn:",
+                              {
+                                "Ref": "AWS::Partition"
+                              },
+                              ":s3:::",
+                              {
+                                "Ref": "ServerlessDeploymentBucket"
+                              },
+                              "/*"
+                            ]
+                          ]
+                        },
+                        {
+                          "Fn::Join": [
+                            "",
+                            [
+                              "arn:",
+                              {
+                                "Ref": "AWS::Partition"
+                              },
+                              ":s3:::",
+                              {
+                                "Ref": "ServerlessDeploymentBucket"
+                              }
+                            ]
+                          ]
+                        }
+                      ],
+                      "Condition": {
+                        "Bool": {
+                          "aws:SecureTransport": false
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "Outputs": {
+            "ServerlessDeploymentBucketName": {
+              "Value": {
+                "Ref": "ServerlessDeploymentBucket"
+              }
+            }
+          }
+        }
+      },
+      "name": "aws",
+      "runtime": "nodejs20.x",
+      "region": "ap-south-1",
+      "youtubeHeloFunc": {
+        "handler": "hello.handler",
+        "events": [
+          {
+            "httpApi": null
+          }
+        ],
+        "path": "/hello",
+        "method": "GET"
+      },
+      "functions": null
+    },
+    "serviceRawFile": "# \"org\" ensures this Service is used with the correct Serverless Framework Access Key.\norg: ahsansatti234\n# \"app\" enables Serverless Framework Dashboard features and sharing them with other Services.\napp: serveless-app\nservice: youtube-api\r\n\r\nprovider:\r\nname: aws\r\nruntime: nodejs20.x \r\nregion: ap-south-1\r\n\r\nfunctions:\r\nyoutubeHeloFunc:\r\n handler: hello.handler \r\n\r\n#  trigger\r\n events:\r\n\r\n - httpApi:\r\n path: /hello\r\n method: GET\r\n",
+    "command": [
+      "deploy"
+    ],
+    "options": {},
+    "error": {
+      "message": "AWS credentials missing or invalid. Run \"serverless\" to set up AWS credentials, or learn more in our docs: http://slss.io/aws-creds-setup. Original error from AWS: Could not load credentials from any providers",
+      "code": "AWS_CREDENTIALS_MISSING"
+    },
+    "params": {},
+    "machineId": "b5b13a9370fe07f0a7a79a4e7433fe61",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "422fce8a-67fa-4dce-81f1-09458b9a416a",
+    "orgName": "ahsansatti234",
+    "userId": "zcJPNb0qlPvjDC594Q",
+    "dashboard": {
+      "isEnabledForService": true,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": {
+        "providers": false,
+        "monitoring": false
+      },
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": "5X7lMxRqS7B0dDQDL3",
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "ahsansatti234",
+    "subscription": null,
+    "userEmail": "ahsansatti402@gmail.com",
+    "versionSf": "4.1.19",
+    "serviceProviderAwsCfStackName": "youtube-api-dev",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}

@@ -1,0 +1,21 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: ahsansatti234
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: serveless-app
+service: youtube-api
+
+provider:
+name: aws
+runtime: nodejs20.x 
+region: ap-south-1
+
+functions:
+youtubeHeloFunc:
+ handler: hello.handler 
+
+#  trigger
+ events:
+
+ - httpApi:
+ path: /hello
+ method: GET
